@@ -16,7 +16,7 @@ def get_companyname(ticker):
     for link in soup.find_all('span', class_='companyName'):
         return(link.next_element)
 
-    
+
 # holt CIK anhand des Tickers
 def get_company_cik(ticker):
     soup = get_soup(ticker)
@@ -35,11 +35,11 @@ def get_10k_files(ticker):
     soup = BeautifulSoup(data, "html.parser")
 
     for link in soup.find_all('a', href=True, id='documentsbutton'):
-        
+
         print('https://www.sec.gov' + link['href'])
 
 #https://www.sec.gov/Archives/edgar/data/320193/000162828016020309/a201610-k9242016.htm
-#https://www.sec.gov/Archives/edgar/data/320193/000032019317000070/a10-k20179302017.htm    
+#https://www.sec.gov/Archives/edgar/data/320193/000032019317000070/a10-k20179302017.htm
 #https://www.sec.gov/Archives/edgar/data/320193/000032019317000070/0000320193-17-000070-index.htm
 
     #https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320193&type=10-K&dateb=&owner=include&count=40
@@ -47,8 +47,14 @@ def get_10k_files(ticker):
 
 #get_10k_files('AAPL')
 
+
 # TODO
 # aus den gefundenen Links den zum 10-K finden
+# TODO
+# die 10-K Dateien optional speichern
+# TODO
+# aus den 10-K Dateien die gewünschten Informationen herausziehen
+
 #url = 'https://www.sec.gov/Archives/edgar/data/320193/000119312515356351/0001193125-15-356351-index.htm'
 url = 'https://www.sec.gov/Archives/edgar/data/320193/000032019317000070/0000320193-17-000070-index.htm'
 r = requests.get(url)
